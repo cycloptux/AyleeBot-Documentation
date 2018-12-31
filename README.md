@@ -4,4 +4,4 @@ The bot is written in Node.js and requires the [Discord.js](https://discord.js.o
 
 This repository will serve as a place to track issues, feedback and suggestions about the bot.
 
-It will also be hosting the documentation source. The full documentation can be read [here]().
+It will also be hosting the documentation source. The full documentation can be read [here](https://inugamibot.readthedocs.io/).
