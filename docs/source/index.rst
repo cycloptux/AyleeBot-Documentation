@@ -14,7 +14,6 @@ Welcome to InugamiBot's documentation!
    introduction
    technical-info
    permissions-system
-   bot-invite
    credits
    modules-docs
    
