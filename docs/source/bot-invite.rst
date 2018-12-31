@@ -1,3 +1,3 @@
 ****************************************
-Invite GiselleBot to your Discord Server
+Invite InugamiBot to your Discord Server
 ****************************************

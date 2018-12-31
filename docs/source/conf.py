@@ -19,18 +19,18 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'GiselleBot'
+project = 'InugamiBot'
 copyright = '2018, cycloptux'
 author = 'cycloptux'
 
 # The short X.Y version
-version = '2.0'
+version = '1.0'
 # The full version, including alpha/beta/rc tags
-release = '2.0.0-alpha'
+release = '1.0.0'
 
 # Substitutions
 rst_prolog = '''
-.. |bot_prefix| replace:: !
+.. |bot_prefix| replace:: >
 '''
 
 # -- General configuration ---------------------------------------------------
@@ -112,7 +112,7 @@ html_context = {
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'GiselleBotdoc'
+htmlhelp_basename = 'InugamiBotdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -139,7 +139,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'GiselleBot.tex', 'GiselleBot Documentation',
+    (master_doc, 'InugamiBot.tex', 'InugamiBot Documentation',
      'cycloptux', 'manual'),
 ]
 
@@ -149,7 +149,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'gisellebot', 'GiselleBot Documentation',
+    (master_doc, 'Inugamibot', 'InugamiBot Documentation',
      [author], 1)
 ]
 
@@ -160,8 +160,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'GiselleBot', 'GiselleBot Documentation',
-     author, 'GiselleBot', 'One line description of project.',
+    (master_doc, 'InugamiBot', 'InugamiBot Documentation',
+     author, 'InugamiBot', 'One line description of project.',
      'Miscellaneous'),
 ]
 
