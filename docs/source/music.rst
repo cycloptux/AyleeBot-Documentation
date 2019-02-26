@@ -28,12 +28,9 @@ Examples
 
 ....
 
-<<<<<<< HEAD
-=======
 |bot_prefix|\ msearch
 ---------------------
 
->>>>>>> 2ad337177c95245c4d53a8b5952bf566dcd2e65a
 Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
@@ -46,12 +43,9 @@ Searches a song with the given keyword and shows a selection of results to play.
 
 ....
 
-<<<<<<< HEAD
-=======
 |bot_prefix|\ mskip
 -------------------
 
->>>>>>> 2ad337177c95245c4d53a8b5952bf566dcd2e65a
 Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
@@ -66,12 +60,9 @@ This command will have a voting feature soon. For the time being, anyone can ski
 
 ....
 
-<<<<<<< HEAD
-=======
 |bot_prefix|\ mstop
 -------------------
 
->>>>>>> 2ad337177c95245c4d53a8b5952bf566dcd2e65a
 Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
@@ -84,12 +75,9 @@ Immediately stops the ongoing playlist.
 
 ....
 
-<<<<<<< HEAD
-=======
 |bot_prefix|\ mpause
 --------------------
 
->>>>>>> 2ad337177c95245c4d53a8b5952bf566dcd2e65a
 Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
@@ -102,12 +90,9 @@ Pauses the currently playing track. **Only available in Patreon-enabled servers.
 
 ....
 
-<<<<<<< HEAD
-=======
 |bot_prefix|\ mresume
 ---------------------
 
->>>>>>> 2ad337177c95245c4d53a8b5952bf566dcd2e65a
 Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
@@ -120,12 +105,9 @@ Resumes paused music. **Only available in Patreon-enabled servers.**
 
 ....
 
-<<<<<<< HEAD
-=======
 |bot_prefix|\ mvolume
 ---------------------
 
->>>>>>> 2ad337177c95245c4d53a8b5952bf566dcd2e65a
 Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
@@ -138,12 +120,9 @@ Check or change the current volume. **Only available in Patreon-enabled servers.
 
 ....
 
-<<<<<<< HEAD
-=======
 |bot_prefix|\ mnp
 -----------------
 
->>>>>>> 2ad337177c95245c4d53a8b5952bf566dcd2e65a
 Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
@@ -156,12 +135,9 @@ Shows what song the bot is currently playing.
 
 ....
 
-<<<<<<< HEAD
-=======
 |bot_prefix|\ mqueue
 --------------------
 
->>>>>>> 2ad337177c95245c4d53a8b5952bf566dcd2e65a
 Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
@@ -174,12 +150,9 @@ Shows the music queue.
 
 ....
 
-<<<<<<< HEAD
-=======
 |bot_prefix|\ mlyrics
 ---------------------
 
->>>>>>> 2ad337177c95245c4d53a8b5952bf566dcd2e65a
 Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
@@ -192,12 +165,9 @@ Gets the lyrics of the current playing song **or** looks for lyrics by song name
 
 ....
 
-<<<<<<< HEAD
-=======
 |bot_prefix|\ mremove
 ---------------------
 
->>>>>>> 2ad337177c95245c4d53a8b5952bf566dcd2e65a
 Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
@@ -210,12 +180,9 @@ Removes a certain entry from the queue.
 
 ....
 
-<<<<<<< HEAD
-=======
 |bot_prefix|\ mskipto
 ---------------------
 
->>>>>>> 2ad337177c95245c4d53a8b5952bf566dcd2e65a
 Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
@@ -228,12 +195,9 @@ Skips to a certain position in the queue.
 
 ....
 
-<<<<<<< HEAD
-=======
 |bot_prefix|\ mrmdupes
 ----------------------
 
->>>>>>> 2ad337177c95245c4d53a8b5952bf566dcd2e65a
 Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
@@ -246,12 +210,9 @@ Removes duplicate songs from the queue.
 
 ....
 
-<<<<<<< HEAD
-=======
 |bot_prefix|\ mleavecleanup
 ---------------------------
 
->>>>>>> 2ad337177c95245c4d53a8b5952bf566dcd2e65a
 Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
@@ -264,12 +225,9 @@ Removes absent users' songs from the queue.
 
 ....
 
-<<<<<<< HEAD
-=======
 |bot_prefix|\ mchannel
 ----------------------
 
->>>>>>> 2ad337177c95245c4d53a8b5952bf566dcd2e65a
 Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
