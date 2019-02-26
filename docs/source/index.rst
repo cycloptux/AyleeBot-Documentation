@@ -27,6 +27,7 @@ Welcome to InugamiBot's documentation!
    feedback
    giveaway
    moderation
+   music
    social
    youtube
    
