@@ -12,14 +12,14 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
+import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'InugamiBot'
+project = os.environ.get('BOT_NAME')
 copyright = '2019, cycloptux'
 author = 'cycloptux'
 
@@ -30,11 +30,11 @@ release = '3.0.0-beta'
 
 # Substitutions
 rst_prolog = '''
-.. |bot_name| replace:: InugamiBot
-.. |bot_prefix| replace:: >
-.. |bot_prefix_name| replace:: a greater than sign
-.. |company_name| replace:: NetEase Games
-.. |discord_name| replace:: Onmyoji Official
+.. |bot_name| replace:: ''' + os.environ.get('BOT_NAME') + '''
+.. |bot_prefix| replace:: ''' + os.environ.get('BOT_PREFIX') + '''
+.. |bot_prefix_name| replace:: ''' + os.environ.get('BOT_PREFIX_LITERAL') + '''
+.. |company_name| replace:: ''' + os.environ.get('COMPANY_NAME') + '''
+.. |discord_name| replace:: ''' + os.environ.get('DISCORD_NAME') + '''
 .. |gisellebot_invite| replace:: https://docs.cycloptux.com/gisellebot/bot-invite.html
 '''
 
@@ -117,7 +117,7 @@ html_context = {
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'InugamiBotdoc'
+htmlhelp_basename = 'AyleeBotdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -144,7 +144,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'InugamiBot.tex', 'InugamiBot Documentation',
+    (master_doc, 'AyleeBot.tex', 'AyleeBot Documentation',
      'cycloptux', 'manual'),
 ]
 
@@ -154,7 +154,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'Inugamibot', 'InugamiBot Documentation',
+    (master_doc, 'Ayleebot', 'AyleeBot Documentation',
      [author], 1)
 ]
 
@@ -165,8 +165,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'InugamiBot', 'InugamiBot Documentation',
-     author, 'InugamiBot', 'One line description of project.',
+    (master_doc, 'AyleeBot', 'AyleeBot Documentation',
+     author, 'AyleeBot', 'One line description of project.',
      'Miscellaneous'),
 ]
 
