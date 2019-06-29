@@ -47,6 +47,8 @@ Permissions Needed
 
 ....
 
+.. _submit:
+
 |bot_prefix|\ submit
 --------------------
 
@@ -96,7 +98,7 @@ Each question has to be set using 5 fields, separated by one ``|`` character.
 * Third field:
 
   * If ``reaction`` is selected in the first field, this field will list all of the possible answers, using ``;`` to separate these answers. If this is the case, this field is **mandatory**.
-  * If ``message`` is selected in the first field, this field will include a list of validation words: any anwer given by the target user will be ignored unless the message contains at least one of the chosen words/sentences (case insensitive). Again, you can separate words/sentences with ``;``. If this is the case, this field is optional.
+  * If ``message`` is selected in the first field, this field will include a list of validation words: any answer given by the target user will be ignored unless the message contains at least one of the chosen words/sentences (case insensitive). Again, you can separate words/sentences with ``;``. If this is the case, this field is optional.
 
 .. note:
     Due to Discord limitations, there can only be a maximum of 20 answers in a reaction question. Answers from the 21st onward will be ignored.
@@ -216,7 +218,7 @@ Command Syntax
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
-Publishes an existing form, making it available to server members through the dedicated section of the bot Direct Messages behavior (see ..........).
+Publishes an existing form, making it available to server members through the dedicated section of the bot Direct Messages behavior (see :ref:`submit`).
 
 ....
 
@@ -343,7 +345,7 @@ Command Syntax
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
-Exports the current forms submission stats for the current server.
+Exports the current forms submission statistics and contents for the current server.
 
 Permissions Needed
 ^^^^^^^^^^^^^^^^^^
