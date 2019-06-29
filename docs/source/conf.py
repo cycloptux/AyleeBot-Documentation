@@ -30,8 +30,12 @@ release = '3.0.0-beta'
 
 # Substitutions
 rst_prolog = '''
+.. |bot_name| replace:: InugamiBot
 .. |bot_prefix| replace:: >
 .. |bot_prefix_name| replace:: a greater than sign
+.. |company_name| replace:: NetEase Games
+.. |discord_name| replace:: Onmyoji Official
+.. |gisellebot_docs| replace:: https://docs.cycloptux.com/gisellebot/
 '''
 
 # -- General configuration ---------------------------------------------------

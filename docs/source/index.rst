@@ -1,13 +1,10 @@
-.. InugamiBot documentation master file, created by
-   sphinx-quickstart on Tue Dec 11 00:45:34 2018.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. Documentation master file, created by sphinx-quickstart on Tue Dec 11 00:45:34 2018.
 
 **************************************
-Welcome to InugamiBot's documentation!
+Welcome to |bot_name|'s documentation!
 **************************************
 
-**InugamiBot** is a Discord bot, developed by Cyc (cycloptux#1543 on Discord).
+|bot_name| is a Discord bot, developed by Cyc (cycloptux#1543 on Discord).
 
 Built with security in mind, this actively developed bot is feature rich while still being flexible and easy to use. Key features include:
 
