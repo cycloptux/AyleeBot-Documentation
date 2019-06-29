@@ -1,12 +1,12 @@
-**********
-Moderation
-**********
+*****************
+Server Moderation
+*****************
 
-A special thanks to my friend, NaviKing#3820, for the design of this module.
+A special thanks to my friend and partner, NaviKing#3820, for the design of this module.
 
 The purpose of this module is to warn users, track their infractions, and give the moderators the power to punish users accordingly.
 
-In order to fully take advantage of this module, enabling the case/scoring system is suggested. The scoring system is enabled if the **Warning** log is enabled in a server channel. Please refer to the :ref:`log-warning` section in the **Administration** module documentation.
+In order to fully take advantage of this module, enabling the case/scoring system is suggested. The scoring system is enabled if the **Warning** log is enabled in a server channel. Please refer to the :ref:`log-command` section in the **Administration** module documentation.
 
 ....
 
@@ -14,6 +14,8 @@ Configuration Commands
 ======================
 
 These configuration commands are only enabled for those with Administrator permissions. The usage of these commands will be recorded in the **Moderation** log.
+
+.. _moderation-role:
 
 |bot_prefix|\ modrole
 ---------------------
@@ -146,7 +148,7 @@ Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
 
-    |bot_prefix|\ channelbanrole [channel id/mention/q_name] [role id/mention/q_name]
+    |bot_prefix|\ cbanrole [channel id/mention/q_name] [role id/mention/q_name]
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
@@ -170,7 +172,7 @@ Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
 
-    |bot_prefix|\ channelmuterole [channel id/mention/q_name] [role id/mention/q_name]
+    |bot_prefix|\ cmuterole [channel id/mention/q_name] [role id/mention/q_name]
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
@@ -194,7 +196,7 @@ Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
 
-    |bot_prefix|\ channelimagebanrole [channel id/mention/q_name] [role id/mention/q_name]
+    |bot_prefix|\ cimagebanrole [channel id/mention/q_name] [role id/mention/q_name]
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
@@ -224,6 +226,7 @@ The list of "warning commands" is the following:
 
 * |bot_prefix|\ warn
 * |bot_prefix|\ ban
+* |bot_prefix|\ delayban
 * |bot_prefix|\ mute
 * |bot_prefix|\ imageban
 * |bot_prefix|\ cban
@@ -237,12 +240,16 @@ These commands support being used on multiple users at once: if more than one us
 The following commands also support being set as "automatically expiring after X time":
 
 * |bot_prefix|\ mute
+* |bot_prefix|\ delayban
 * |bot_prefix|\ imageban
 * |bot_prefix|\ cban
 * |bot_prefix|\ cmute
 * |bot_prefix|\ cimageban
 
-This is achieved by **prepending** the target users with a time code. Please note that this time setting will overwrite the previous setting each time the command is run on a specified user: this also applies to converting a permanent action into a timed one and vice-versa, without removing the role on the target user.
+This is achieved by **prepending** the target users with a time code.
+
+.. note:
+    This time setting will overwrite the previous setting each time the command is run on a specified user: this also applies to converting a permanent action into a timed one and vice-versa, without removing the role on the target user.
 
 (Common) Command Syntax
 -----------------------
@@ -347,6 +354,21 @@ Permissions Needed
 
 ....
 
+|bot_prefix|\ delayban
+----------------------
+
+Command Description
+^^^^^^^^^^^^^^^^^^^
+
+|bot_prefix|\ delayban mutes a user for the specified amount of time. If this mute status isn't removed with |bot_prefix|\ cancelban before the timer is out, the user will be banned from the server. If the time argument is omitted, it will default to 24 hours.
+
+Permissions Needed
+^^^^^^^^^^^^^^^^^^
+| **User**: Manage Roles, Mute Members, Ban Members
+| **Bot**: Manage Roles, Mute Members, Ban Members
+
+....
+
 |bot_prefix|\ imageban
 ----------------------
 
@@ -443,6 +465,21 @@ Command Description
 ^^^^^^^^^^^^^^^^^^^
 
 Lifts the ban status from the target user(s). 
+
+Permissions Needed
+^^^^^^^^^^^^^^^^^^
+| **User**: Ban Members
+| **Bot**: Ban Members
+
+....
+
+|bot_prefix|\ cancelban
+-----------------------
+
+Command Description
+^^^^^^^^^^^^^^^^^^^
+
+Lifts the mute role from the target user(s), and cancels the corresponding timed ban. 
 
 Permissions Needed
 ^^^^^^^^^^^^^^^^^^
@@ -569,7 +606,8 @@ Command Description
 
 Deletes a certain number of messages from the channel in which the command is run. For security reasons, the bot caps this number to **500** messages. If you need to delete more than 500, you can append ``--force`` to remove the cap.
 
-**BEWARE**: There isn't a higher cap. This command could potentially nuke a whole channel if ``--force`` is used. For this reason, the usage of the ``--force`` parameter is restricted to those with **Administrator** permissions.
+.. warning::
+    **BEWARE**: There isn't a higher cap. This command could potentially nuke a whole channel if ``--force`` is used. For this reason, the usage of the ``--force`` parameter is restricted to those with **Administrator** permissions.
 
 The filter items serve to delete/ignore a subset of messages in the set of messages specified by the integer argument. The list of available filters is:
 
@@ -603,6 +641,44 @@ Examples
 
 ....
 
+|bot_prefix|\ slowmode
+----------------------
+
+Command Syntax
+^^^^^^^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ slowmode [time code] [channel id(s)/mention(s)/q_name(s)]
+
+Command Description
+^^^^^^^^^^^^^^^^^^^
+
+Sets slow mode for the current, or the selected, channels. This command leverages 2 different systems:
+
+* If the slow mode time code is within Discord's native slow mode time limit, the native slow mode is applied.
+* If the slow mode time code exceeds Discord's native time limit, the bot will apply an "extended slow mode" status.
+
+The **extended slow mode** applies a minimal native slow mode to make sure the "Slowmode is enabled" message is shown. At the same time, each message sent by an unauthorized user will be automatically deleted, and the user will be notified of the applied slow mode.
+
+The extended slow mode doesn't have a higher cap.
+
+Using the command without any argument will show the current settings for the server. Using the command with **0** in place of the time code will disable the slow mode for the current, or the selected, channel(s).
+
+Permissions Needed
+^^^^^^^^^^^^^^^^^^
+| **User**: Manage Messages
+| **Bot**: Manage Messages
+
+Examples
+^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ sm 1h45m #slow-channel
+    |bot_prefix|\ sm 0 #slow-channel-1 #slow-channel-2
+    |bot_prefix|\ slowmode
+
+....
+
 Evasion Actions
 ===============
 
@@ -627,13 +703,15 @@ To account for the nature and severity of various infractions, users will incur 
 
 This section will describe the details of the "default" warning point system backend as well as point out options or commands to configure parts of the system.
 
+.. _point-accumulation:
+
 Point Accumulation and Thresholds
 ---------------------------------
 
 In addition to a user's total points being the sum of the points of their infractions, the following rules apply to points:
 
 * Warning points expire after **90 days**, at which point the value of the infraction decreases to **1**.
-* The first warning for a particular rule is considered to be a "soft warning" and worth half points (e.g., if a user broke the toxic attitudes rule and the NSFW rule, both infractions would be recorded at half points, but breaking the toxic attitudes rule twice would result in the second infraction being recorded at full points).
+* The first warning for a particular rule is considered to be a "soft warning" and worth half points (e.g., if a user broke the toxic attitudes rule and the NSFW rule, both infractions would be recorded at half points, but breaking the toxic attitudes rule twice would result in the second infraction being recorded at full points). This behavior can be configured with :ref:`half-logic`.
 * Each case score can be manually adjusted (``--padj``) but it must always be >= 0. Validation rules are in place for a score not to be negative. Any adjustment that brings the score to a negative value will make the score account for 0.
 * In order to preserve the severity of a banned user's warning history, points for banned users will not expire **while the user is banned**. Unbanning a user will make the points behave as usual again.
 
@@ -830,6 +908,8 @@ Examples
 
 ....
 
+.. _listrules:
+
 |bot_prefix|\ listrules
 -----------------------
 
@@ -868,7 +948,10 @@ Command Syntax
 Command Description
 ^^^^^^^^^^^^^^^^^^^
 
-Adds a custom rule to the rules list. Adding a custom rule generates a server-specific rule ID for that rule automatically, starting from ``s_1``. Adding a channel identifier will assign that rule as being channel-specific (this is primarily used to track how close a user is to reaching a channel ban threshold, *please note that channel ban thresholds are not implemented yet*).
+Adds a custom rule to the rules list. Adding a custom rule generates a server-specific rule ID for that rule automatically, starting from ``s_1``. Adding a channel identifier will assign that rule as being channel-specific (this is primarily used to track how close a user is to reaching a channel ban threshold)
+
+.. note:
+    Channel ban thresholds are not implemented yet.
 
 Permissions Needed
 ^^^^^^^^^^^^^^^^^^
@@ -918,19 +1001,27 @@ Permissions Needed
 
 ....
 
-|bot_prefix|\ toggleglobalrule
-------------------------------
+.. _half-logic:
+
+|bot_prefix|\ halflogic
+-----------------------
 
 Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
 
-    |bot_prefix|\ tgrule (rule id(s)/name(s)/alias(es))
+    |bot_prefix|\ halflogic (none/first/each)
 
 Command Description
 ^^^^^^^^^^^^^^^^^^^
 
-Hides (or unhides) one or more global/default rule(s) from the rules list.
+As described in :ref:`point-accumulation`, the first warning for a particular rule is considered to be a "soft warning" and worth half points by default. This behavior can be configured as follows:
+
+* **none**: Don't halve the points for any warnings.
+* **first**: Only halve the first warning a user receives (server-wide).
+* **each**: Halve the first warning a user receives under each rule (default).
+
+Using the command with no arguments will show the current settings for the server.
 
 Permissions Needed
 ^^^^^^^^^^^^^^^^^^
@@ -972,7 +1063,7 @@ Command Description
 
 Sets the number of points a warning will decay to after they expire. Provide no arguments to reset to the default.
 
-Any warnings worth fewer points than the !expirypoints value will not decay.
+Any warnings worth fewer points than the |bot_prefix|\ expirypoints value will not decay.
 
 Permissions Needed
 ^^^^^^^^^^^^^^^^^^
@@ -997,3 +1088,63 @@ Sets the number of points at which a mute, ban, or "absolute ban" is recommended
 Permissions Needed
 ^^^^^^^^^^^^^^^^^^
 | **User**: Administrator
+
+....
+
+Auto Moderation
+===============
+
+An auto moderation feature is available. The current auto moderator currently supports **4** triggers (messages or actions performed by users) and **5** actions (actions performed on the offending user and/or message). Each trigger can be configured with an extra whitelist, as described below.
+
+By default, administrators and moderators (refer to :ref:`moderation-role`) are immune to auto moderation triggers.
+
+**Supported triggers**
+
+* **Server Invites**: recognizes Discord server invites in user messages; this trigger supports **shortened** URLs (e.g. Discord invites hidden behind a bit.ly shortening service), and ignores invites pointing to the current server.
+* **Mass Mention**: counts the number of mentions (roles, users or everyone/here) in a message and triggers if the number of mentions is over a threshold. The default threshold is **10**, but can be configured in each server.
+* **Banned Words**: checks the message against a list of words, configured by the user, and triggers if one or more words are found within the message. Punctuation and letter case are ignored. The parser can be configured to trigger on an "exact match" (e.g. banned word: ``test``, matching word: ``test``), if the banned word is found at the "beginning of a word" within the message (e.g. banned word: ``test``, matching word: ``testing``), or "anywhere in word" (e.g. banned word: ``test``, matching word: ``attestation``).
+* **Anti-Spam**: counts the number of messages **with the same content** sent by a user within a certain span of time and triggers if the number of identical message is over a threshold. The default threshold is **3** messages in **10** seconds, but can be configured in each server.
+
+.. note:
+    Discord lag or connection problems can cause Anti-Spam false positives.
+
+**Supported actions**
+
+* **Automatic deletion of the offending message**.
+* **Auto-warn**: Automatically apply a generic warning on the offending user. Specify a rule with the dedicated option.
+* **Auto-mute**: Automatically mute the offending user. The applied mute is a temporary, 2 hours long, mute.
+* **Auto-kick**: Automatically kick the offending user.
+* **Auto-ban**: Automatically ban the offending user.
+
+
+**Whitelisting options**
+
+* **Users**: Ignore messages/actions performed by specific users in a server.
+* **Roles**: Ignore messages/actions performed by specific roles in a server.
+* **Channels**: Ignore messages sent in specific channels in a server.
+* **Servers (Server Invites only)**: Ignore Discord server invites pointing to a specific server. You need to use the server ID to add this kind of whitelisting option. Applying this whitelist rule enables instant, temporary or permanent invites (including vanity URLs) for one or more server(s).
+
+**Extra options**
+
+* **Moderators alerting**: Each auto moderator action will be logged into the **Moderation** logger (refer to :ref:`log-command`). If this option is enabled, each log entry will also include a mention to the current moderator role(s).
+* **Moderation rule**: If a moderation action is taken against the offending user, this option will let you select one rule to use for that action.
+
+....
+
+|bot_prefix|\ automodsetup
+--------------------------
+
+Command Syntax
+^^^^^^^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ amset
+
+Command Description
+^^^^^^^^^^^^^^^^^^^
+
+Opens the auto moderation interactive setup menu. Use the menu items to configure the above settings.
+
+.. note:
+    Not all of the settings will have a meaning in all of the triggers. Read the above descriptions to understand what each option means within the specific trigger.
+

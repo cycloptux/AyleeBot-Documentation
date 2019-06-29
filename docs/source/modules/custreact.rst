@@ -4,8 +4,6 @@ Custom Reactions
 
 The Custom Reactions module enables users to set up custom bot reactions and build pseudo-commands in a server.
 
-Partially inspired by `NadekoBot <https://nadekobot.me/>`_.
-
 |bot_prefix|\ togglecustreact
 -----------------------------
 
@@ -35,18 +33,27 @@ Command Description
 Adds a new custom reaction for the current server.
 
 Optional Parameters:
+
 * ``anywhere``: Triggers the reaction based on a text that appears anywhere in a message, instead of starting with the trigger text. Default: off.
 * ``dm``: Sends the response text via DM instead of using the current channel. Default: off.
 * ``delete``: Deletes the original message after a reaction is triggered. Default: off.
-* ``global``: **Bot owner only**. Makes the custom reaction global, hence triggering in any server the bot is. Default: off.
+* ``global``: **Bot Owner**. Makes the custom reaction global, hence triggering in any server the bot is. Default: off.
 
 You can use one (or more) of these placeholders in your response message:
+
 * **%user%**: This will be replaced with a mention of the user.
+* **%username%**: This will be replaced with the username of the user, without the discriminator (e.g. cycloptux).
+* **%fullusername%**: This will be replaced with the username of the user, including the discriminator (e.g. cycloptux#1543).
+* **%bot%**: This will be replaced with a mention of the bot.
+* **%botname%**: This will be replaced with the username of the bot, without the discriminator.
+* **%fullbotname%**: This will be replaced with the username of the bot, including the discriminator.
 * **%server%**: This will be replaced with the server name.
+* **%channel%**: This will be replaced with the channel name.
 * **%now%**: This will be replaced with the current time, with format ``YYYY-MM-DD HH:mm:ss (UTC)``.
 * **%server\_time%**: This will be replaced with the current time, with format ``HH:mm UTC``.
+* **%target%**: This will be replaced with anything the user wrote after the trigger.
 
-You can use embed json from https://embedbuilder.nadekobot.me/ instead of a regular text in the response parameter, if you want the message to be embedded.
+You can use embed json from https://eb.nadeko.bot/ instead of a regular text in the response parameter, if you want the message to be embedded.
 
 Examples
 ^^^^^^^^
@@ -63,13 +70,13 @@ Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
 
-    |bot_prefix|\ ecr (reaction_id) [--out {response text}] [--anywhere] [--dm] [--delete] [--global]
+    |bot_prefix|\ ecr (reaction id) [--in {trigger text}] [--out {response text}] [--anywhere] [--dm] [--delete] [--global]
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
 Edits an existing custom reaction for the current server. Global custom reactions can only be edited by the bot owner.
 
-You cannot edit the trigger text of a custom reaction: if you want to change the trigger text of a reaction, delete the existing one and add a new custom reaction.
+.. You cannot edit the trigger text of a custom reaction: if you want to change the trigger text of a reaction, delete the existing one and add a new custom reaction. <-- Not true anymore
 
 The presence of an optional parameter will **toggle** the option to the opposite of what it was before the edit. ``--global``, on the other hand, will need to be added or removed accordingly, depending on the scope of the reaction.
 
@@ -88,7 +95,7 @@ Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
 
-    |bot_prefix|\ scr (reaction_id)
+    |bot_prefix|\ scr (reaction id)
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
@@ -124,7 +131,7 @@ Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
 
-    |bot_prefix|\ dcr (reaction_id)
+    |bot_prefix|\ dcr (reaction id)
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^

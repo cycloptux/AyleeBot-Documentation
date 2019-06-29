@@ -4,8 +4,11 @@ Music
 
 The Music module enables users to listen to YouTube music in a Discord server's dedicated voice channel.
 
-Partially inspired by `Rythm <https://rythmbot.co/>`_.
+.. admonition:: Patreon
 
+    By default, each server is limited to having a maximum of **3 songs in a queue**, and each song can only be a maximum of **8 minutes long**. You can unlock up to **50 song-queues** and uncap the duration limit (also enabling the streaming of **live channels**) via **Patreon** pledges (see: :ref:`patreon-perks`).
+    
+    Out of the following commands, |bot_prefix|\ mpause, |bot_prefix|\ mresume, |bot_prefix|\ mvolume and |bot_prefix|\ mlyrics can be unlocked via **Patreon** pledges (see: :ref:`patreon-perks`).
 
 |bot_prefix|\ mplay
 -------------------
@@ -14,7 +17,7 @@ Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
 
-    |bot_prefix|\ mplay (song name or search keyword)
+    |bot_prefix|\ mp (song name or search keyword)
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
@@ -50,13 +53,22 @@ Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
 
-    |bot_prefix|\ mskip
+    |bot_prefix|\ ms
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
-Skips to the next queued song.
+Skips to the next queued song. If 3 or more people are listening to the same song, a vote will happen.
 
-This command will have a voting feature soon. For the time being, anyone can skip any song.
+For a vote skip to take effect, **70%** of the voice channel members must agree.
+
+.. note:
+    Let's assume there are 10 users in the music voice channel.
+    The threshold for skipping is calculated as 70% of 10 = 7 (numbers will be rounded down if needed).
+    For the vote skip to take effect, you would then need 7 positive votes.
+
+.. note:
+    Vote skip will not be active until there are 3 or more people in the voice channel (with one person, insta-skip is enabled and with two the threshold for skipping is 1).
+    Administrators will bypass the voting system.
 
 ....
 
@@ -73,6 +85,9 @@ Command Description
 ^^^^^^^^^^^^^^^^^^^
 Immediately stops the ongoing playlist.
 
+.. note:
+    This command is only available if you are alone in the voice channel or if you have "Manage Channels" permissions.
+
 ....
 
 |bot_prefix|\ mpause
@@ -86,7 +101,10 @@ Command Syntax
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
-Pauses the currently playing track. **Only available in Patreon-enabled servers.**
+Pauses the currently playing track.
+
+.. note:
+    This command is only available if you are alone in the voice channel or if you have "Manage Channels" permissions.
 
 ....
 
@@ -101,7 +119,25 @@ Command Syntax
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
-Resumes paused music. **Only available in Patreon-enabled servers.**
+Resumes paused music.
+
+....
+
+|bot_prefix|\ mrewind
+---------------------
+
+Command Syntax
+^^^^^^^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ mrewind
+    
+Command Description
+^^^^^^^^^^^^^^^^^^^
+Rewinds the currently playing track and starts playing it from the beginning.
+
+.. note:
+    This command is only available if you are alone in the voice channel or if you have "Manage Channels" permissions.
 
 ....
 
@@ -116,7 +152,10 @@ Command Syntax
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
-Check or change the current volume. **Only available in Patreon-enabled servers.**
+Checks or changes the current volume.
+
+.. note:
+    This command is only available if you are alone in the voice channel or if you have "Manage Channels" permissions.
 
 ....
 
@@ -161,7 +200,7 @@ Command Syntax
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
-Gets the lyrics of the current playing song **or** looks for lyrics by song name or keyword. **Only available in Patreon-enabled servers.**
+Gets the lyrics of the current playing song **or** looks for lyrics by song name or keyword.
 
 ....
 
@@ -178,6 +217,9 @@ Command Description
 ^^^^^^^^^^^^^^^^^^^
 Removes a certain entry from the queue. 
 
+.. note:
+    This command is only available if you are alone in the voice channel or if you have "Manage Channels" permissions.
+
 ....
 
 |bot_prefix|\ mskipto
@@ -191,7 +233,18 @@ Command Syntax
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
-Skips to a certain position in the queue.
+Skips to a certain position in the queue. If 3 or more people are listening to the same song, a vote will happen.
+
+For a vote skip to take effect, **70%** of the voice channel members must agree.
+
+.. note:
+    Let's assume there are 10 users in the music voice channel.
+    The threshold for skipping is calculated as 70% of 10 = 7 (numbers will be rounded down if needed).
+    For the vote skip to take effect, you would then need 7 positive votes.
+
+.. note:
+    Vote skip will not be active until there are 3 or more people in the voice channel (with one person, insta-skip is enabled and with two the threshold for skipping is 1).
+    Administrators will bypass the voting system.
 
 ....
 

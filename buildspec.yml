@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.7
+    commands:
+      - apt-get install python3-sphinx python3-pip -y
+      - pip3 install sphinx_rtd_theme
+      # - pip3 install guzzle_sphinx_theme
+  build:
+    commands:
+      - cd docs/
+      - make clean html
+
+artifacts:
+  files:
+    - docs/build/html/**/*
+    - appspec.yml
+    - scripts/01-create-folder.sh
+    - scripts/02-clean-build.sh
+    - scripts/03-set-permissions.sh
+  discard-paths: no

@@ -4,9 +4,6 @@ Giveaway Campaigns
 
 The Giveaway Campaigns module enables users to start and manage giveaways in a Discord server.
 
-Partially inspired by `GiveawayBot <https://giveawaybot.party/>`_.
-
-
 |bot_prefix|\ gstart
 --------------------
 
@@ -36,6 +33,30 @@ Examples
 
 ....
 
+|bot_prefix|\ gedit
+-------------------
+
+Command Syntax
+^^^^^^^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ gedit [message id] [--prize {prize name}] [--winners {# of winners (number)}]
+    
+Command Description
+^^^^^^^^^^^^^^^^^^^
+Edits an existing giveaway in the current channel. The message ID is optional: if omitted, the most recent giveaway in the channel will be ended.
+
+Giveaway editing is limited to prize and number of winners.
+
+Examples
+^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ gedit --prize 2 Free Steam Keys
+    |bot_prefix|\ gedit 123456789098765432 --winners 5
+
+....
+
 |bot_prefix|\ gend
 ------------------
 
@@ -61,7 +82,7 @@ Examples
 ....
 
 |bot_prefix|\ greroll
-------------------
+---------------------
 
 Command Syntax
 ^^^^^^^^^^^^^^
@@ -95,7 +116,10 @@ Command Syntax
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
-Sets a custom emoji for the giveaway campaign in the current server. Please note that you **must** use reactions that are either global or present in the server. Failing to do so may result in the giveaway reaction not to work.
+Sets a custom emoji for the giveaway campaign in the current server.
+
+.. warning:
+    You **must** use reactions that are either "global" (Discord native emojis) or present in the server. Failing to do so may result in the giveaway reaction not to work.
 
 Examples
 ^^^^^^^^

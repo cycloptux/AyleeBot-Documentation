@@ -1,0 +1,11 @@
+version: 0.0
+os: linux
+files:
+  - source: /docs/build/html/
+    destination: /var/www/docs.cycloptux.com/gisellebot/public_html
+hooks:
+  BeforeInstall:
+    - location: scripts/01-create-folder.sh
+    - location: scripts/02-clean-build.sh
+  AfterInstall:
+    - location: scripts/03-set-permissions.sh
