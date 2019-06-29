@@ -35,7 +35,7 @@ rst_prolog = '''
 .. |bot_prefix_name| replace:: a greater than sign
 .. |company_name| replace:: NetEase Games
 .. |discord_name| replace:: Onmyoji Official
-.. |gisellebot_docs| replace:: https://docs.cycloptux.com/gisellebot/
+.. |gisellebot_invite| replace:: https://docs.cycloptux.com/gisellebot/bot-invite.html
 '''
 
 # -- General configuration ---------------------------------------------------

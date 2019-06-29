@@ -12,7 +12,7 @@ Core Engine
 |bot_name| is a private bot based on the public **GiselleBot**.
 
 .. seealso::
-    If you are interested in using a bot with similar features to |bot_name|'s, take a look at GiselleBot's documentation to get an invite: |gisellebot_docs|
+    If you are interested in using a bot with similar features to |bot_name|'s, take a look at GiselleBot's documentation to get an invite: |gisellebot_invite|
 
 The bot is written in Node.js, and uses `Discord.js v12 <https://discord.js.org/>`_ as core Discord library.
 
