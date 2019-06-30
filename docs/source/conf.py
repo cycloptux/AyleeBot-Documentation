@@ -30,11 +30,11 @@ release = '3.0.0-beta'
 
 # Substitutions
 rst_prolog = '''
-.. |bot_name| replace:: ''' + os.environ['BOT_NAME'] + '''
-.. |bot_prefix| replace:: ''' + os.environ['BOT_PREFIX'] + '''
-.. |bot_prefix_name| replace:: ''' + os.environ['BOT_PREFIX_LITERAL'] + '''
-.. |company_name| replace:: ''' + os.environ['COMPANY_NAME'] + '''
-.. |discord_name| replace:: ''' + os.environ['DISCORD_NAME'] + '''
+.. |bot_name| replace:: ''' + os.environ.get('BOT_NAME') + '''
+.. |bot_prefix| replace:: ''' + os.environ.get('BOT_PREFIX') + '''
+.. |bot_prefix_name| replace:: ''' + os.environ.get('BOT_PREFIX_LITERAL') + '''
+.. |company_name| replace:: ''' + os.environ.get('COMPANY_NAME') + '''
+.. |discord_name| replace:: ''' + os.environ.get('DISCORD_NAME') + '''
 .. |gisellebot_invite| replace:: https://docs.cycloptux.com/gisellebot/bot-invite.html
 '''
 
