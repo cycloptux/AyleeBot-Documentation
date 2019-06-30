@@ -2,10 +2,11 @@ version: 0.0
 os: linux
 files:
   - source: /docs/build/html/
-    destination: /var/www/docs.cycloptux.com/${BOT_IDENTIFIER}/public_html
+    destination: /tmp/code-deploy
 hooks:
   BeforeInstall:
     - location: scripts/01-create-folder.sh
     - location: scripts/02-clean-build.sh
   AfterInstall:
-    - location: scripts/03-set-permissions.sh
+    - location: scripts/03-move-files.sh
+    - location: scripts/04-set-permissions.sh
