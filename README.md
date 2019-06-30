@@ -1,7 +1,5 @@
-# README
-InugamiBot is a Discord bot, written by Cyc (cycloptux#1543) as a helper bot for the management of the Onmyoji Official Discord server.
-The bot is written in Node.js and requires the [Discord.js](https://discord.js.org/) library.
+# Welcome to AyleeBot's documentation repository
 
-This repository will serve as a place to track issues, feedback and suggestions about the bot.
+**AyleeBot** is a **framework** used to build and launch private Discord bot instances, written by Cyc (cycloptux#1543) and based on the public [GiselleBot](https://docs.cycloptux.com/gisellebot/).
 
-It will also be hosting the documentation source. The full documentation can be read [here](https://inugamibot.readthedocs.io/).
+This repository will host the source documentation files, used to build the actual documentation websites hosted on the developer's website or ReadTheDocs.
