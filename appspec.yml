@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /docs/build/html/
-    destination: /tmp/code-deploy
+    destination: /tmp/code-deploy-BOT_IDENTIFIER
 hooks:
   BeforeInstall:
     - location: scripts/01-create-folder.sh

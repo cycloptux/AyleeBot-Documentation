@@ -10,6 +10,7 @@ phases:
       # - pip3 install guzzle_sphinx_theme
   build:
     commands:
+      - sed -i "s/bot_identifier/$BOT_IDENTIFIER/g" appspec.yml
       - cd docs/
       - make clean html
 
@@ -19,5 +20,6 @@ artifacts:
     - appspec.yml
     - scripts/01-create-folder.sh
     - scripts/02-clean-build.sh
-    - scripts/03-set-permissions.sh
+    - scripts/03-move-files.sh
+    - scripts/04-set-permissions.sh
   discard-paths: no
