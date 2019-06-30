@@ -10,7 +10,8 @@ phases:
       # - pip3 install guzzle_sphinx_theme
   build:
     commands:
-      - sed -i "s/bot_identifier/$BOT_IDENTIFIER/g" appspec.yml
+      - sed -i "s/BOT_IDENTIFIER/$BOT_IDENTIFIER/g" appspec.yml
+      - sed -i "s/BOT_IDENTIFIER/$BOT_IDENTIFIER/g" $(find scripts/ -type f)
       - cd docs/
       - make clean html
 
