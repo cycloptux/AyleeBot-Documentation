@@ -56,6 +56,13 @@ Built with security in mind, this actively developed bot is feature rich while s
    
 .. toctree::
    :maxdepth: 1
+   :caption: Game Integrations
+   :glob:
+   
+   game_integrations/*
+   
+.. toctree::
+   :maxdepth: 1
    :caption: Modules & Command List (Premium)
    :glob:
    

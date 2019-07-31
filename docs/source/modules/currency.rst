@@ -88,7 +88,7 @@ Command Description
 ^^^^^^^^^^^^^^^^^^^
 Sets a custom emoji as currency in the current server. Using the command without the extra emoji argument will reset the currency emoji to the default one.
 
-.. warning:
+.. warning::
     You **must** use reactions that are either "global" (Discord native emojis) or present in the server. Failing to do so may result in the currency emoji not to work.
     
 Permissions Needed
@@ -137,30 +137,6 @@ Command Description
 Sets the **global** amount of currency and/or cooldown for the |bot_prefix|\ timely command. Modified cooldown applies to everyone immediately, but doesn't reset users' cooldown.
 
 Running the command with no arguments will show the current settings.
-
-Permissions Needed
-^^^^^^^^^^^^^^^^^^
-| **User**: Bot Owner
-
-....
-
-|bot_prefix|\ currencyrate
---------------------------
-
-Command Syntax
-^^^^^^^^^^^^^^
-.. parsed-literal::
-
-    |bot_prefix|\ currencyrate [server id/q_name] [multiplier]
-    
-Command Description
-^^^^^^^^^^^^^^^^^^^
-Sets the currency multiplier (applies to :ref:`games` and :ref:`timely`) for the current server or another specified server. The default multiplier is (obviously) **1**.
-
-Running the command with no arguments will show the current settings.
-
-.. warning::
-    Using this command is not recommended. The multipliers will usually conflict with games multipliers, resulting in people generating an insanely high amount of currency.
 
 Permissions Needed
 ^^^^^^^^^^^^^^^^^^
@@ -226,7 +202,7 @@ Each reacting user will be gifted with the selected amount of currency. You can 
 
 By default, each user will be rewarded with the specified amount of currency. You can set a maximum amount of currency for the event "bucket" by using the ``--pot-size`` parameter (e.g. if ``--amount 50 --p 100`` is used, only the first 2 users will actually receive 50 currency each). You can also set a custom duration for the event.
 
-.. note:
+.. note::
     Checks are in place to ensure that users will only receive their gift the first time they react. Reacting more than once will **not** assign any extra currency.
 
 Here are the default values for the command parameters, on omission:
