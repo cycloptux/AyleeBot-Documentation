@@ -105,6 +105,8 @@ Examples
 
 ....
 
+.. _repeat:
+
 |bot_prefix|\ repeat
 --------------------
 
@@ -159,10 +161,6 @@ Command Syntax
 Command Description
 ^^^^^^^^^^^^^^^^^^^
 Lists all repeating messages within the server.
-
-Permissions Needed
-^^^^^^^^^^^^^^^^^^
-| **User**: Manage Messages
 
 Examples
 ^^^^^^^^

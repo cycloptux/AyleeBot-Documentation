@@ -1,5 +1,3 @@
-.. Documentation master file, created by sphinx-quickstart on Tue Dec 11 00:45:34 2018.
-
 **************************************
 Welcome to |bot_name|'s documentation!
 **************************************
@@ -20,6 +18,13 @@ Built with security in mind, this actively developed bot is feature rich while s
 * Custom reactions: create your own commands with your own input and output text!
 * Music: listen to music in your voice channels
 * Much much more!
+
+.. seealso::
+   |bot_name| is also listed on **Discord Bot List** and **Bots on Discord**. If you like the bot and want to support its growth, be sure to vote for it on those websites!
+   
+   * **Discord Bot List**: https://discordbots.org/bot/356831787445387285 (rewards included! Refer to :ref:`dblnotify`)
+   * **Bots on Discord**: https://bots.ondiscord.xyz/bots/356831787445387285?vote
+   
 
 ....
 

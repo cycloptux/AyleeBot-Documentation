@@ -28,12 +28,14 @@ Available to everyone
 ---------------------
 
 * alarm
+* azurlane
 * currency
 * games
 * miscellaneous
-* poll
+* music
 * raidroom
 * reactions
+* scheduler
 * social
 * util
 
@@ -83,8 +85,10 @@ Examples
     
 ....
 
+.. _permenablemod:
+
 |bot_prefix|\ permenablemod
--------------------------------
+---------------------------
 
 Command Syntax
 ^^^^^^^^^^^^^^
@@ -106,7 +110,7 @@ Examples
 ....
     
 |bot_prefix|\ permdisablemod
---------------------------------
+----------------------------
 
 Command Syntax
 ^^^^^^^^^^^^^^
