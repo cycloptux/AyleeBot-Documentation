@@ -82,7 +82,7 @@ Toggles one or more logger types in the current channel. Available loggers are:
 
 You can also print the list of available loggers within Discord by using |bot_prefix|\ log without any additional argument.
 
-.. admonition:: Patreon
+.. admonition:: Premium
 
     The **Members**, **Messages**, **Roles**, **Channels**, **Moderation** and **Warning** loggers are publicly available. If you want to enable **Users**, **Server** and **Voice** loggers, you can unlock them via **Patreon** pledges (see: :ref:`patreon-perks`).
 
@@ -111,7 +111,7 @@ Command Syntax
 Command Description
 ^^^^^^^^^^^^^^^^^^^
 
-.. admonition:: Patreon
+.. admonition:: Premium
 
     This feature is only available to **Patreon**-enabled servers (see: :ref:`patreon-perks`).
 
@@ -297,7 +297,12 @@ Command Description
 ^^^^^^^^^^^^^^^^^^^
 Automaticaly assigns one or more specified roles to every user who joins the server.
 
-Providing one or more role identifiers will toggle whether or not users will receive that role upon joining the server, for each role. Provide no parameters to show the current settings.
+Providing one or more role identifiers will toggle whether or not users will receive that role upon joining the server, for each role.
+
+.. note::
+    In other words, after activating a role, use the same command on that role to disable the auto assignment on join.
+
+Provide no parameters to show the current settings.
 
 Permissions Needed
 ^^^^^^^^^^^^^^^^^^

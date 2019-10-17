@@ -29,7 +29,7 @@ Built with security in mind, this actively developed bot is feature rich while s
    bot-invite
    credits
    docs-101
-   patreon-perks
+   premium-perks
    
 .. toctree::
    :maxdepth: 1

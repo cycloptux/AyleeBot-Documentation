@@ -99,7 +99,7 @@ Command Syntax
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
-Prints the current configuration for a specific custom reaction.
+Prints the current configuration for a specific custom reaction. It will also preview how the reaction is printed when triggered in a server (placeholders will **not** be replaced in this preview).
 
 Examples
 ^^^^^^^^
@@ -116,11 +116,13 @@ Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
 
-    |bot_prefix|\ lcr
+    |bot_prefix|\ lcr [--global] [--in {text}]
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
-Lists all available custom reactions in the current server (including global reactions).
+Lists all available custom reactions in the current server. Using the ``--global`` argument will show the list of global reactions.
+
+Using the ``--in`` parameter will filter on reactions that are triggered by the text used within that argument.
 
 ....
 
