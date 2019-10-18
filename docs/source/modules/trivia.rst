@@ -7,7 +7,7 @@ Trivia
     
 This module lets users play trivia quiz games on Discord. The module gets its default questions from the **Open Trivia Database**, which offers more than 3,000 validated questions in more than 15 categories.
 
-The trivia module is meant to be public and used by anyone for fun. Users with "Manage Messages" permissions, hereafter called "Elevated Users", will also have access to extra settings that will make them able to set trivia quiz games up for use by other users (typical use cases include events, giveaways, etc.).
+The trivia module is meant to be public and used by anyone for fun. Users with "Manage Messages" & "Manage Roles" permissions, hereafter called "Elevated Users", will also have access to extra settings that will make them able to set trivia quiz games up for use by other users (typical use cases include events, giveaways, etc.).
 
 Trivia games can be **timed** or **immediate**.
 
@@ -66,7 +66,7 @@ Command Syntax
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
-Initialized a trivia in the current channel.
+Initializes a trivia in the current channel.
 
 Default settings are:
 
@@ -97,9 +97,9 @@ Command Description
 ^^^^^^^^^^^^^^^^^^^
 Opens the trivia game interactive setup menu. Use the menu items to configure the above settings.
 
-**Name** will show in the title of each embed related to that trivia, and it's limited to 128 characters.
+**Name** will show in the title of each embed related to that trivia. Trivia names cannot be longer than 128 characters.
 
-**Description** will appear on each question, and in the starting and final embed, and it's limited to 1024 characters.
+**Description** will appear on each question, and in the starting and final embed. Trivia descriptions cannot be longer than 1024 characters.
 
 **Categories** can be left blank ("any category") or it can be used to restrict the questions to **one or more** categories. At the time of writing this documentation page, the categories available from the Open Trivia Database are:
 
@@ -310,7 +310,7 @@ If the ID is omitted, the command will attempt to pause the trivia game in the c
 
 Permissions Needed
 ^^^^^^^^^^^^^^^^^^
-| **User**: Manage Messages
+| **User**: Manage Messages, Manage Roles
 
 Examples
 ^^^^^^^^
@@ -340,7 +340,7 @@ If the ID is omitted, the command will attempt to resume the paused trivia game 
 
 Permissions Needed
 ^^^^^^^^^^^^^^^^^^
-| **User**: Manage Messages
+| **User**: Manage Messages, Manage Roles
 
 Examples
 ^^^^^^^^
@@ -372,7 +372,7 @@ If the ID is omitted, the command will attempt to delete the paused trivia game 
 
 Permissions Needed
 ^^^^^^^^^^^^^^^^^^
-| **User**: Manage Messages
+| **User**: Manage Messages, Manage Roles
 
 Examples
 ^^^^^^^^
