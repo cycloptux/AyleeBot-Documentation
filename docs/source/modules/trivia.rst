@@ -17,7 +17,7 @@ Trivia games can be **timed** or **immediate**.
 Depending on the "type" of user running the command(s), some limitations apply to the usage of the trivia module. The following table shows such limitations.
 
 +-------------------------+----+-----------+-------+---------+-----+-----+
-| User Type               | MQ | MT        | RR    | TC      | AD  | CT  |
+| User Type               | MQ | MT        | RR    | TC      | AD  | SE  |
 +=========================+====+===========+=======+=========+=====+=====+
 | Normal (non-"Elevated") | 10 | 3 minutes | No    | No      | No  | No  |
 +-------------------------+----+-----------+-------+---------+-----+-----+
@@ -31,7 +31,7 @@ Depending on the "type" of user running the command(s), some limitations apply t
 * **RR**: Can set role restrictions
 * **TC**: Can set a different target channel
 * **AD**: Can configure auto-deletion of messages
-* **CT**: Can configure someone else's trivia
+* **SE**: Can configure and/or start someone else's trivia
 
 | :sub:`\*: Users are not allowed to set a role restriction to roles higher than the highest role they have.`
 | :sub:`\*\*: Users are not allowed to set a target channel to a channel they don't have R/W access to (Read Messages and/or Send Messages).`
@@ -215,6 +215,8 @@ Command Syntax
 Command Description
 ^^^^^^^^^^^^^^^^^^^
 Prints the final results of a trivia game. This is the same embed that is printed when a trivia game ends, showing the top 5 users and their corresponding scores.
+
+This command only works on completed trivia games.
     
 Examples
 ^^^^^^^^
@@ -235,7 +237,9 @@ Command Syntax
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
-Shows a detailed list of questions and the corresponding subitted answers for the user running this command, showing whether the given answers are correct or not.
+Shows a detailed list of questions and the corresponding submitted answers for the user running this command, showing whether the given answers are correct or not.
+
+This command only works on completed trivia games.
 
 Examples
 ^^^^^^^^
@@ -281,7 +285,7 @@ Command Syntax
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
-Shows the list of all (non-deleted) trivias in the server: their ID, name and status.
+Shows the list of all (non-deleted) trivia games in the server: their ID, name and status.
 
 Examples
 ^^^^^^^^
@@ -304,7 +308,7 @@ Command Description
 ^^^^^^^^^^^^^^^^^^^
 **This command is only available to Elevated Users.**
 
-Pauses a trivia, given its ID. Pausing a trivia will make users unable to submit answers for that trivia. If the trivia game was set as **timed**, the timer for the currently running question will keep clocking, but will then freeze without moving to the next question.
+Pauses a trivia, given its ID. Pausing a trivia will make users unable to submit answers for that trivia. If the trivia game was set as **timed**, the timer for the current question will continue to count down to zero, but the next question will not appear until the game is unpaused.
 
 If the ID is omitted, the command will attempt to pause the trivia game in the current channel, if any.
 
