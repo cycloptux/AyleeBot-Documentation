@@ -4,7 +4,8 @@ Twitter Connector
 
 The Twitter connector offers an easy way to stream tweets from any Twitter account to one (or more) of the webhooks configured in your Discord server.
 
-In order to better understand this module (and the rest of the connector modules), it's very important that you are familiar with Discord webhooks. For more details about this Discord feature, please take a look at `this official guide <https://support.discordapp.com/hc/en-us/articles/228383668-Intro-to-Webhooks>`_.
+.. seealso::
+    In order to better understand this module (and the rest of the connector modules), it's very important that you are familiar with Discord webhooks. For more details about this Discord feature, please take a look at `this official guide <https://support.discordapp.com/hc/en-us/articles/228383668-Intro-to-Webhooks>`_.
 
 By default, each tweet will be posted to the webhook by using the Twitter account username as author, and Twitter avatar as Discord profile picture. These settings (and other details) can be customized for each stream.
 
@@ -12,7 +13,8 @@ Tweet URLs will be posted to Discord, while the tweet preview will leverage the 
 
 .. note::
     The goal of this module is offering a **free alternative** to something that is usually only achieved through the use of paid services. On the other hand, due to limitations that are applied to the free Twitter API, this module might suffer from command cooldowns and/or miss a few tweets every once in a while.
-
+    
+    
 |bot_prefix|\ twthook
 ---------------------
 
@@ -20,11 +22,15 @@ Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
 
-    |bot_prefix|\ twthook (twitter username) (webhook URL) [customization params]
+    |bot_prefix|\ twthook (Twitter username) (webhook URL) [customization params]
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
 Starts a streaming service for the selected Twitter account. If a new tweet is found, it will be sent to the specified webhook service.
+
+.. warning::
+    Discord webhooks are a very powerful feature, but they (currently) lack 2-way authentication of messages. This means that a malicious user knowing a webhook URL will be able, with some effort, to forge a message containing any kind of content using external tools and send that message to the webhook.
+    In order to protect yourself from this (rare) occasion, make sure you run this command in non-public channels.
 
 **Customization Params**
 
@@ -49,7 +55,9 @@ Depending on the selected parameter, these are the NSFW behaviors:
 
 Adds a **whitelist** filter to the stream. In this example, if the tweet contains ``first word`` and/or (see below) ``second word``, the tweet will be sent to the webhook, otherwise it will ignored. You can set one or more words, case-insensitive.
 
-You can also set "composite words" (two or more words as a single filter) by quoting them: ``"foo bar" test`` will accont as 2 filter elements: ``foo bar`` and ``test``.
+You can also set "composite words" (two or more words as a single filter) by quoting them: ``"foo bar" test`` will count as 2 filter elements: ``foo bar`` and ``test``.
+
+The filter works on partial words (e.g. "announce" will work on both "announcement" and "announced").
 
 **Default**: No filter
 
