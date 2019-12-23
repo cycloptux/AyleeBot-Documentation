@@ -30,12 +30,19 @@ release = '3.2.0'
 
 # Substitutions
 rst_prolog = '''
+<<<<<<< HEAD
 .. |bot_name| replace:: ''' + os.environ.get('BOT_NAME') + '''
 .. |bot_prefix| replace:: ''' + os.environ.get('BOT_PREFIX') + '''
 .. |bot_prefix_name| replace:: ''' + os.environ.get('BOT_PREFIX_LITERAL') + '''
 .. |company_name| replace:: ''' + os.environ.get('COMPANY_NAME') + '''
 .. |discord_name| replace:: ''' + os.environ.get('DISCORD_NAME') + '''
 .. |gisellebot_invite| replace:: https://docs.cycloptux.com/gisellebot/bot-invite.html
+=======
+.. |bot_name| replace:: GiselleBot
+.. |bot_invite| replace:: https://gisl.eu/invite
+.. |bot_prefix| replace:: !
+.. |bot_prefix_name| replace:: an exclamation point
+>>>>>>> 8398f54f78c5b0fda9bf559947850601b20dd3c8
 '''
 
 # -- General configuration ---------------------------------------------------
