@@ -82,7 +82,7 @@ Examples
 
     |bot_prefix|\ gcend
     |bot_prefix|\ gcend 123456789098765432
-
+    
 ....
 
 |bot_prefix|\ gcreroll
@@ -114,6 +114,21 @@ Examples
 
 ....
 
+|bot_prefix|\ gclist
+--------------------
+
+Command Syntax
+^^^^^^^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ gclist
+
+Command Description
+^^^^^^^^^^^^^^^^^^^
+Lists all ongoing giveaways in the current server.
+
+....
+
 |bot_prefix|\ gcreaction
 ------------------------
 
@@ -121,11 +136,15 @@ Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
 
-    |bot_prefix|\ gcreaction (emoji)
+    |bot_prefix|\ gcreaction [emoji]
     
 Command Description
 ^^^^^^^^^^^^^^^^^^^
 Sets a custom emoji for the giveaway campaign in the current server.
+
+This change only applies to new giveaways: giveaway campaigns that are already running will keep their former reaction setting.
+
+Use with no parameters (no emoji) to show the current giveaway reaction emoji. Use with ``-`` as parameter to restore the default emoji: ``:tickets:``
 
 .. warning::
     You **must** use reactions that are either "global" (Discord native emojis) or present in the server.
@@ -140,4 +159,6 @@ Examples
 
     |bot_prefix|\ gcreaction 😀
     |bot_prefix|\ gcreaction :BlobOwO:
+    |bot_prefix|\ gcreaction -
+    |bot_prefix|\ gcreaction
 

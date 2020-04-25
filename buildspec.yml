@@ -5,12 +5,15 @@ phases:
     runtime-versions:
       python: 3.7
     commands:
-      - apt-get install python3-pip -y
+      - apt-get install python3 -y
+      - curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+      - python3 get-pip.py
       - pip3 install sphinx sphinx_rtd_theme sphinx-sitemap
       # - pip3 install guzzle_sphinx_theme
   build:
     commands:
       - sed -i "s/BOT_IDENTIFIER/$BOT_IDENTIFIER/g" appspec.yml
+      - sed -i "s/BOT_IDENTIFIER/$BOT_IDENTIFIER/g" docs/source/robots.txt
       - sed -i "s/BOT_IDENTIFIER/$BOT_IDENTIFIER/g" $(find scripts/ -type f)
       - cd docs/
       - make clean html

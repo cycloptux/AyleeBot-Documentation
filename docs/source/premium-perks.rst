@@ -41,11 +41,12 @@ By becoming a **Tier 1** (or higher) patron, you'll get access to:
 * (Server Administration) **Users**, **Server** and **Voice** loggers, and access to the |bot_prefix|\ logignore command
 * (Command Scheduler) **Command Scheduling** interval raised from 1 hour to **12 hours**
 * (Currency System, Social/EXP Ranking) **Experience and Currency** gained on each message and by using the |bot_prefix|\ timely command will be boosted by **5%** for **all users** in your server!
+* (Utility) **up to 5 simultaneous clock channels** (removing the default cap of 1 clock channel per server)
 
 Tier 2: Premium Support, Extended Modules
 =========================================
 
-By becoming a **Tier 2** (or higher) patron, you'll gain access to a dedicated "priority support" channel within the `official support server <https://gisl.eu/docs>`_, where you'll get a priority answer from the developer upon encountering any issue.
+By becoming a **Tier 2** (or higher) patron, you'll gain access to a dedicated "priority support" channel within the `official support server <https://gisl.eu/support>`_, where you'll get a priority answer from the developer upon encountering any issue.
 
 You'll also get to pick a custom color for your name in the official support server.
 
@@ -65,8 +66,8 @@ Tier 3: Unlocked Original Modules
 
 By becoming a **Tier 3** (or higher) patron, you'll unlock the whole potential of |bot_name|'s original modules:
 
-* (Forms Builder) create **up to 20 forms** in your server (removing the default cap of 1 form)
-* (Raid Rooms) **uncap the number of simultaneous Raid Rooms** that can be created in a server (removing the default cap of 3 simultaneous rooms)
+* (Forms Builder) create **up to 20 forms** in your server (removing the default cap of 3 forms)
+* (Raid Rooms) **uncap the number of simultaneous Raid Rooms** that can be created in a server (removing the default cap of 5 simultaneous rooms)
 * (Trivia) get access to the |bot_prefix|\ triviaexport command, and to the full list of **"Trivia Template" commands**: |bot_prefix|\ triviatsave, |bot_prefix|\ triviatload, |bot_prefix|\ triviatdelete and |bot_prefix|\ triviatshow.
 * (Command Scheduler) **Command Scheduling** interval raised to **1 month**
 * (Currency System, Social/EXP Ranking) **Experience and Currency** gained on each message and by using the |bot_prefix|\ timely command will be boosted by **12%** for **all users** in your server!

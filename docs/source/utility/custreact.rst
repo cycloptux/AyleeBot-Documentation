@@ -1,3 +1,5 @@
+.. _custreact:
+
 ****************
 Custom Reactions
 ****************
@@ -51,6 +53,10 @@ You can use one (or more) of these placeholders in your response message:
 * **%channel%**: This will be replaced with the channel name.
 * **%now%**: This will be replaced with the current time, with format ``YYYY-MM-DD HH:mm:ss (UTC)``.
 * **%server\_time%**: This will be replaced with the current time, with format ``HH:mm UTC``.
+* **%prefix%**: This will be replaced with the current prefix for the server.
+* **%globalprefix%**: This will be replaced with the default, global prefix.
+* **%boost\_level%**: This will be replaced with the current Nitro Server Boost level for the server.
+* **%boost\_number%**: This will be replaced with the current number of Nitro Server Boosts that the server received.
 * **%target%**: This will be replaced with anything the user wrote after the trigger.
 
 You can use embed json from https://eb.nadeko.bot/ instead of a regular text in the response parameter, if you want the message to be embedded.
@@ -144,6 +150,40 @@ Examples
 .. parsed-literal::
 
     |bot_prefix|\ dcr 3
+
+....
+
+|bot_prefix|\ restcustreact
+---------------------------
+
+Command Syntax
+^^^^^^^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ rcr (reaction id) [role id(s)/mention(s)/q_name(s)] [--exclude] [--and]
+    
+Command Description
+^^^^^^^^^^^^^^^^^^^
+Restricts an existing custom reaction to a specified set of roles, or exludes a set of roles from using a reaction.
+
+If used without any argument, the command will apply the default setting: **allowing** all users in a server.
+
+By using the command with one or more role identifiers, the command will restrict the custom reaction to all users that have at least one of those roles.
+
+By adding the ``--exclude`` parameter to the command, the logic will switch from whitelisting the specified roles to **blacklisting** them: users with at least one the specified roles will **not** be able to use the custom reaction.
+
+By adding the ``--and`` parameter to the command, the logic will switch from an **OR** logic to and **AND** logic, allowing or restricting a custom reaction to users that have (or lack) all of the configured roles.
+
+Use the above parameters to configure each custom reaction with the desided configuration. Each usage of this command will overwrite the previously set logic.
+
+Examples
+^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ rcr 4 Moderators "Authorized People"
+    |bot_prefix|\ rcr 3 "Authorized People" "Sensitive Data" --and
+    |bot_prefix|\ rcr 12 @Restricted --exclude
+    |bot_prefix|\ rcr 27 "Unauthorized A" "Unauthorized B" --and --exclude
 
 ....
 

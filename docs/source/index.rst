@@ -19,7 +19,6 @@ Built with security in mind, this actively developed bot is feature rich while s
 * Music: listen to music in your voice channels
 * Much much more!
 
-
 ....
 
 .. toctree::

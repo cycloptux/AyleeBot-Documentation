@@ -353,7 +353,32 @@ Command Description
 
 |bot_prefix|\ ban has one additional, optional argument before the user identifier(s): either the number 24, or the number 7. If this argument is omitted, the user is banned without their message history being deleted. Otherwise, the bot uses the native ban API to delete the last 24 hours or 7 days of the banned users' message history.
 
-This also works banning users that are currently not in the server. It is advised to use the user ID for that.
+The same parameter can also be passed by using the ``--days`` argument (e.g. ``--days 1`` or ``--days 7``).
+
+This command also works for banning users that are currently not in the server, as long as the user is known/cached by the bot. It is advised to use the user ID for that.
+
+Refer to :ref:`moderation` for the exact command syntax.
+
+Permissions Needed
+^^^^^^^^^^^^^^^^^^
+| **User**: Ban Members
+| **Bot**: Ban Members
+
+....
+
+|bot_prefix|\ timeban
+---------------------
+
+Command Description
+^^^^^^^^^^^^^^^^^^^
+
+|bot_prefix|\ timeban bans a user from the current server for the specified amount of time.
+
+Once the ban period has ended, as long as the user hasn't been permanently banned by "overwriting" the timed ban with a fully fledged |bot_prefix|\ ban (or manually re-allowed through |bot_prefix|\ unban), the ban will be automatically lifted. If the time argument is omitted, it will default to 24 hours.
+
+Please allow for up to 1 extra minute before the ban is actually lifted after it has officially expired.
+
+This command also works for banning users that are currently not in the server, as long as the user is known/cached by the bot. It is advised to use the user ID for that.
 
 Refer to :ref:`moderation` for the exact command syntax.
 
@@ -650,10 +675,12 @@ Command Syntax
 Command Description
 ^^^^^^^^^^^^^^^^^^^
 
-Deletes a certain number of messages from the channel in which the command is run. For security reasons, the bot caps this number to **500** messages. If you need to delete more than 500, you can append ``--force`` to remove the cap.
+Deletes a certain number of messages from the channel in which the command is run. For security reasons, the bot caps this number to **500** messages.
 
-.. warning::
-    **BEWARE**: There isn't a higher cap. This command could potentially nuke a whole channel if ``--force`` is used. For this reason, the usage of the ``--force`` parameter is restricted to those with **Administrator** permissions.
+..  If you need to delete more than 500, you can append ``--force`` to remove the cap.
+
+    .. warning::
+        **BEWARE**: There isn't a higher cap. This command could potentially nuke a whole channel if ``--force`` is used. For this reason, the usage of the ``--force`` parameter is restricted to those with **Administrator** permissions.
 
 The filter items serve to delete/ignore a subset of messages in the set of messages specified by the integer argument. The list of available filters is:
 
@@ -1021,6 +1048,29 @@ Deletes a custom rule from the list of rules. Use |bot_prefix|\ toggleglobalrule
 
 .. note::
     In order to preserve the history of users that were previously moderated according to a specific rule, "deleted" rules are never actually deleted. "Deleted" rules are instead **hidden**, and running the |bot_prefix|\ deleterule again on the same rule ID will restore the rule in its previous, visible state.
+
+Permissions Needed
+^^^^^^^^^^^^^^^^^^
+| **User**: Manage Server
+
+....
+
+|bot_prefix|\ toggleglobalrule
+------------------------------
+
+Command Syntax
+^^^^^^^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ toggleglobalrule (rule id/name/alias)
+
+Command Description
+^^^^^^^^^^^^^^^^^^^
+
+Deletes (hides) a default native rule from the list of rules. Use |bot_prefix|\ deleterule to hide a custom rule from the list of rules (see above).
+
+.. note::
+    In order to preserve the history of users that were previously moderated according to a specific rule, "deleted" rules are never actually deleted. "Deleted" rules are instead **hidden**, and running the |bot_prefix|\ toggleglobalrule again on the same rule ID will restore the rule in its previous, visible state.
 
 Permissions Needed
 ^^^^^^^^^^^^^^^^^^

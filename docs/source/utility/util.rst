@@ -145,6 +145,31 @@ Prints a bunch of info about the current server.
 
 ....
 
+|bot_prefix|\ serverbots
+------------------------
+
+Command Syntax
+^^^^^^^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ sbot [--detail]
+
+Command Description
+^^^^^^^^^^^^^^^^^^^
+Prints the full list of bots that are present in the server.
+
+If the ``--detail`` additional parameter is used, the command will attempt scanning the top 3 most used bot listing websites to get info about the bot owner, and post a link to the found page.
+
+The command will scan:
+
+ * **Top.gg / Discord Bot List**: https://top.gg/
+ * **Bots on Discord**: https://bots.ondiscord.xyz/
+ * **Discord Bots**: https://discord.bots.gg/
+ 
+This additional scan is usually very slow (about ~5 seconds per bot).
+
+....
+
 |bot_prefix|\ serveremojis
 --------------------------
 
@@ -332,11 +357,105 @@ Converts a sequence of words into a sequence of emojis, provided the bot has acc
 
 Emoji names are case-sensitive.
 
+By default, this command only tries to fetch emojis from the current server, effectively limitating its usefulness.
+
+By setting one, or more, server(s) as emojify source servers using the |bot_prefix|\ emojifysource command, |bot_name| will look for emojis in those servers as well as the current server when the |bot_prefix|\ emojify command is used.
+
 Examples
 ^^^^^^^^
 .. parsed-literal::
 
     |bot_prefix|\ emojify BlobOwO BlobPats
+    
+....
+
+|bot_prefix|\ emojifyverbose
+----------------------------
+
+Command Syntax
+^^^^^^^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ emojifyverbose (emoji name, without the : :)
+
+Command Description
+^^^^^^^^^^^^^^^^^^^
+
+Converts one word into the corresponding emoji, provided the bot has access to that emoji. The response will also include info about the server where the emoji was fetched from.
+
+Emoji names are case-sensitive.
+
+By default, this command only tries to fetch emojis from the current server, effectively limitating its usefulness.
+
+By setting one, or more, server(s) as emojify source servers using the |bot_prefix|\ emojifysource command, |bot_name| will look for emojis in those servers as well as the current server when the |bot_prefix|\ emojify command is used.
+
+Examples
+^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ emojifyverbose BlobOwO
+
+....
+
+|bot_prefix|\ emojifysource
+---------------------------
+
+Command Syntax
+^^^^^^^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ emojifysource [server id(s)]
+
+Command Description
+^^^^^^^^^^^^^^^^^^^
+
+By default, the |bot_prefix|\ emojify command only tries to fetch emojis from the current server, effectively limitating its usefulness.
+
+By setting one, or more, server(s) as emojify source servers, |bot_name| will look for emojis in those servers as well as the current server when the |bot_prefix|\ emojify command is used.
+
+.. note::
+    |bot_name| must be in the emojify source server for it to correctly fetch emojis. You can, although, preemptively authorize a server before |bot_name| has been invited in it.
+    
+If used without any server ID, this command will show the current list of servers that are set as emojify source.
+
+If used with one or more server IDs, it will toggle each server into the list of servers that will be used as emojify source servers.
+
+When a server is set as unavailable through the |bot_prefix|\ emojifyexclude command, it will appear with a ``:no_entry:`` sign.
+
+Permissions Needed
+^^^^^^^^^^^^^^^^^^
+| **User**: Manage Emojis
+
+Examples
+^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ emojifysource
+    |bot_prefix|\ emojifysource 123456789098765432 234567890987654321 345678909876543212
+
+....
+
+|bot_prefix|\ emojifyexclude
+----------------------------
+
+Command Syntax
+^^^^^^^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ emojifyexclude
+
+Command Description
+^^^^^^^^^^^^^^^^^^^
+
+Makes the emojis contained in the server where the command is run unavailable to the |bot_prefix|\ emojify command.
+
+Run the command again to toggle the exclusion status of the server.
+
+When a server is set as unavailable, it will appear with a ``:no_entry:`` sign through the |bot_prefix|\ emojifysource command.
+
+Permissions Needed
+^^^^^^^^^^^^^^^^^^
+| **User**: Manage Server
 
 ....
 
@@ -569,3 +688,105 @@ Examples
 .. parsed-literal::
 
     |bot_prefix|\ shorturl http://www.amazon.com/Kindle-Wireless-Reading-Display-Globally/dp/B003FSUDM4/ref=amb_link_353259562_2?pf_rd_m=ATVPDKIKX0DER&pf_rd_s=center-10&pf_rd_r=11EYKTN682A79T370AM3&pf_rd_t=201&pf_rd_p=1270985982&pf_rd_i=B002Y27P3M 
+
+....
+
+|bot_prefix|\ urban
+-------------------
+
+Command Syntax
+^^^^^^^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ urban (search string) [--more]
+
+Command Description
+^^^^^^^^^^^^^^^^^^^
+Urban Dictionary text lookup. The output will be the highest ranked result. The embed title will hyperlink to the corresponding online page.
+
+Using ``--more`` will show up to 5 results, if available.
+
+.. warning::
+    Given the nature of the website, Urban Dictionary lookups will only be executed in channels that are marked as **NSFW**.
+
+Examples
+^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ urban guinea tee
+    
+....
+
+.. _clockchannel:
+
+|bot_prefix|\ clockchannel
+--------------------------
+
+Command Syntax
+^^^^^^^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ clockchannel (time zone name) [--template {custom channel name template}] [--12ht]
+
+Command Description
+^^^^^^^^^^^^^^^^^^^
+
+Creates a channel as "clock channel", updating its name every minute. You must specify the time zone name: if you need to search for a valid time zone name, use the :ref:`searchtz` command.
+
+You can set a custom template for the channel name. You can use one (or more) of these placeholders in your custom channel name template:
+
+* **%time\_zone%** or **%tz%**: This will be replaced with the name of the chosen time zone.
+* **%clock%**: This will be replaced with the auto-updating clock.
+* **%date%**: This will be replaced with the current date.
+
+Additionally, you can add the ``--12ht`` parameter if you want the clock to be shown as 12 hours time.
+
+By default, the channel name template is ``%time_zone%: %clock%``.
+
+.. admonition:: Premium
+
+    Out of the box, each server is limited to having **1 clock channel**. You can unlock up to **5 different clock channels** as a **Premium** feature (see: :ref:`premium-perks`).
+
+
+Permissions Needed
+^^^^^^^^^^^^^^^^^^
+| **User**: Manage Channels, Manage Server
+| **Bot**: Manage Channels, Connect
+
+
+Examples
+^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ clockchannel UTC
+    |bot_prefix|\ clockchannel Europe/London --12ht
+    |bot_prefix|\ clockchannel America/New_York --template Current Time: %clock%
+
+....
+
+.. _searchtz:
+
+|bot_prefix|\ searchtz
+----------------------
+
+Command Syntax
+^^^^^^^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ searchtz (country code or lookup string)
+
+Command Description
+^^^^^^^^^^^^^^^^^^^
+
+Searches for a valid time zone name.
+
+Using a 2-letters country identifier will show the available time zones for the specified country.
+
+Using any 3+ characters string will search for matching time zones.
+
+Examples
+^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ searchtz US
+    |bot_prefix|\ searchtz New

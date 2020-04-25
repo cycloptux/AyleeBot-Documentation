@@ -20,13 +20,13 @@ import os
 # -- Project information -----------------------------------------------------
 
 project = os.environ.get('BOT_NAME')
-copyright = '2019, cycloptux'
+copyright = '2020, cycloptux'
 author = 'cycloptux'
 
 # The short X.Y version
-version = '3.2'
+version = '4.0'
 # The full version, including alpha/beta/rc tags
-release = '3.2.0'
+release = '4.0.0'
 
 # Substitutions
 rst_prolog = '''
@@ -35,7 +35,7 @@ rst_prolog = '''
 .. |bot_prefix_name| replace:: ''' + os.environ.get('BOT_PREFIX_LITERAL') + '''
 .. |company_name| replace:: ''' + os.environ.get('COMPANY_NAME') + '''
 .. |discord_name| replace:: ''' + os.environ.get('DISCORD_NAME') + '''
-.. |gisellebot_invite| replace:: https://docs.cycloptux.com/gisellebot/bot-invite.html
+.. |gisellebot_invite| replace:: https://docs.gisellebot.com/bot-invite.html
 '''
 
 # -- General configuration ---------------------------------------------------
@@ -113,7 +113,7 @@ html_context = {
 }
 
 # The URL which points to the root of the HTML documentation. It is used to indicate the location of document like canonical_url.
-html_baseurl = 'https://docs.cycloptux.com/gisellebot/'
+html_baseurl = 'https://docs.cycloptux.com/' + os.environ.get('BOT_NAME').lower() + '/'
 
 # A list of paths that contain extra files not directly related to the documentation, such as robots.txt or .htaccess. Relative paths are taken as relative to the configuration directory. They are copied to the output directory. They will overwrite any existing file of the same name.
 # As these files are not meant to be built, they are automatically excluded from source files.
@@ -192,3 +192,10 @@ epub_title = project
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
+
+# -- Options for sphinx-sitemap ----------------------------------------------
+# https://pypi.org/project/sphinx-sitemap/
+
+# Customizing the URL scheme
+# sitemap_url_scheme = "{lang}{version}{link}"
+sitemap_url_scheme = "{lang}{link}"

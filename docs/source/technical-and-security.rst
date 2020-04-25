@@ -35,13 +35,13 @@ The bot is hosted in a public cloud infrastructure (specifically, Amazon Web Ser
 
 * 1 Web Server, hosting the bot dashboard (work-in-progress), documentation website and the API gateway used to communicate with the bots from the external world.
 * 1 Application Server, hosting the bot itself.
-* 3 MongoDB machines, forming an high-availability Replica Set.
+* 3 MongoDB machines, forming a high-availability Replica Set.
 * 1 Container Platform, currently composed of a cluster of 7 virtual server instances, hosting the supporting microservices.
 
 Other than the plain computing power, the cloud infrastructure offers a few other managed services used by the bot:
 
 * An advanced Load Balancer, used to balance the requests sent by the bot(s) to the additional microservices (running in a high-availability configuration).
-* Object Storage buckets, hosting the temporary (encrypted) files that are sent to end-users upon using a bunch of commands.
+* Object Storage buckets, hosting the temporary (encrypted) files that are sent to end-users via a variety of commands.
 * A DNS managed service, hosting the public cycloptux.com domain, the short gisl.eu domain and the internal private domain.
 * A Key Management System, storing the secret keys and API keys used by the bot. Private keys and/or credentials are never stored on the actual servers, they are fetched during the startup of each service.
 * An IAM service, enabling the virtual servers to communicate with the cloud services without having to store credentials within the system itself.
@@ -65,7 +65,7 @@ Encryption in Transit
 Encryption at Rest
 ------------------
 * All storage media (hard disks, object storage repositories, etc.) are protected through low-level encryption.
-* Sensitive and personal data stored in the database is encrypted with AES-128-GCM algorithm.
+* Potentially sensitive and personal data (basically, anything that can be assimilated to a string) stored in the database is encrypted using military-grade AES-256-GCM and AES-128-GCM algorithms.
 * Commands that generate big files (such as a chat log) may transmit the file to the user via Direct Message by temporarily storing it into an encrypted Object Storage bucket. The archive itself is also encrypted using 7-Zip's encryption algorithm, based on AES-256.
   
   * The password is purposefully never logged into the bot internal logs and is only known to the end user.
