@@ -67,6 +67,27 @@ Permissions Needed
 
 ....
 
+|bot_prefix|\ modanonymization
+------------------------------
+
+Command Syntax
+^^^^^^^^^^^^^^
+.. parsed-literal::
+
+    |bot_prefix|\ modanon
+    
+Command Description
+^^^^^^^^^^^^^^^^^^^
+Toggles whether or not users that are affected by a moderation action will also be informed of the identify of the moderator using the command. Default state: **off** (i.e. moderators will **not** be anonymized).
+
+If enabled, the name of the moderator will be omitted on the DM that a user receives upon being hit by a moderation action, and a shield emoji (🛡️) will appear next to the "Performed By" field of the corresponding warning log embed to remind that moderators' protection is on for that case.
+
+Permissions Needed
+^^^^^^^^^^^^^^^^^^
+| **User**: Manage Server
+
+....
+
 |bot_prefix|\ muterole
 ----------------------
 
@@ -270,6 +291,9 @@ If all of these arguments are skipped, the message will simply read "You were wa
 Channel specific commands which are missing the channel parameter will default to being targeted to the current channel. Channels that support time-based expiration (see above) will be treated as permanent if the timecode is missing.
 
 You can skip generating a case by appending the ``--skip-case`` tag. You can skip sending the DM (but still generate a case) by appending the ``--skip-dm`` tag.
+
+.. note::
+    When ``--skip-dm`` is used, a small 🔕 emoji will appear on the corresponding notification and warning log embed footer to track the fact that the action was "silent".
 
 Every warning, by default, will be worth a certain number of points based on the rule broken (as described in the "Warning Point System" section below.
 
@@ -721,21 +745,23 @@ Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
 
-    |bot_prefix|\ slowmode [time code] [channel id(s)/mention(s)/q_name(s)]
+    |bot_prefix|\ slowmode [time code] [channel id(s)/mention(s)/q_name(s)] [--admode]
 
 Command Description
 ^^^^^^^^^^^^^^^^^^^
 
 Sets slow mode for the current, or the selected, channels. This command leverages 2 different systems:
 
-* If the slow mode time code is within Discord's native slow mode time limit, the native slow mode is applied.
-* If the slow mode time code exceeds Discord's native time limit, the bot will apply an "extended slow mode" status.
+* If the slow mode time code is within Discord's native slow mode time limit (less than 6 hours), the native slow mode is applied.
+* If the slow mode time code exceeds Discord's native time limit (more than 6 hours), the bot will apply an "extended slow mode" status.
 
 The **extended slow mode** applies a minimal native slow mode to make sure the "Slowmode is enabled" message is shown. At the same time, each message sent by an unauthorized user will be automatically deleted, and the user will be notified of the applied slow mode.
 
 The extended slow mode doesn't have a higher cap.
 
 Using the command without any argument will show the current settings for the server. Using the command with **0** in place of the time code will disable the slow mode for the current, or the selected, channel(s).
+
+The usage of the optional ``--admode`` parameter will enable the **Auto-Delete** mode, a.k.a. **Bump Mode**. If the **extended slow mode** is active (this mode will not work on native slow mode), each message that is successfully sent into the slowed channel will also trigger an automatic deletion of the previous message sent by the user while slow mode is active.
 
 Permissions Needed
 ^^^^^^^^^^^^^^^^^^
@@ -1039,7 +1065,7 @@ Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
 
-    |bot_prefix|\ delrule (rule id/name/alias)
+    |bot_prefix|\ delrule (rule(s) id/name/alias)
 
 Command Description
 ^^^^^^^^^^^^^^^^^^^
@@ -1062,7 +1088,7 @@ Command Syntax
 ^^^^^^^^^^^^^^
 .. parsed-literal::
 
-    |bot_prefix|\ toggleglobalrule (rule id/name/alias)
+    |bot_prefix|\ toggleglobalrule (rule(s) id/name/alias)
 
 Command Description
 ^^^^^^^^^^^^^^^^^^^

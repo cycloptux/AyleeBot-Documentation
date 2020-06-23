@@ -77,7 +77,7 @@ Twitch Notifications
 ====================
 
 .. seealso::
-    In order to better understand this module (and the rest of the connector modules), it's very important that you are familiar with Discord webhooks. For more details about this Discord feature, please take a look at `this official guide <https://support.discordapp.com/hc/en-us/articles/228383668-Intro-to-Webhooks>`_.
+    In order to better understand this module (and the rest of the connector modules), it's very important that you are familiar with Discord webhooks. For more details about this Discord feature, please take a look at `this official guide <https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks>`_.
 
 By default, each notification will be posted to the webhook by using the Twitch account username as author, and Twitch avatar as Discord profile picture. These settings (and other details) can be customized for each stream.
 
@@ -149,6 +149,19 @@ Custom headers support a few dynamic tags that are replaced with their respectiv
 * **%timestamp% or %timestamp\_utc%**: This will be replaced with the UTC time of the start of the event, with format ``YYYY-MM-DD HH:mm:ss (UTC)``.
 * **%timestamp\_pst%**: This will be replaced with the current PST time of the start of the event, with format ``YYYY-MM-DD HH:mm:ss (PST)``.
 * **%url%**: This will be replaced with the Twitch profile URL. See below for more info.
+
+Timestamp tags also support custom time zones. You can replace the ``utc`` part with either:
+
+* A different **valid** time zone identifier: use the :ref:`searchtz` command to look for a valid time zone name.
+* An **UTC offset**, in the form of ``[UTC/GMT](+/-)(hours)[:][minutes]``. Here are some valid examples:
+
+    * %timestamp\_Europe/London%
+    * %timestamp\_America/Los_Angeles%
+    * %timestamp\_Japan%
+    * %timestamp\_PST8PDT%
+    * %timestamp\_+0800%
+    * %timestamp\_-10:30%
+    * %timestamp\_UTC+2%
 
 By default, without an explicit use of ``%url%``, all headers will be followed by the actual Twitch profile URL on a new line; rendering of that URL will be done by Discord.
 
